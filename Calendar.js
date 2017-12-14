@@ -164,7 +164,7 @@ export default class Calendar extends Component {
         endDateText: '',
         endWeekdayText: '',
       });
-    } else if (startDate && !endDate && day > startDate) {
+    } else if (startDate && !endDate && day >= startDate) {
       this.setState({
         endDate: day,
         endDateText: this._i18n(day, 'date'),
