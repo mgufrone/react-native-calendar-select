@@ -35,12 +35,14 @@ export default class Day extends Component {
       date = null,
       minDate,
       maxDate,
+      disabledDates = [],
       empty
     } = props || this.props;
     this.isToday = today.isSame(date, 'd');
     this.isValid = date &&
       (date >= minDate || date.isSame(minDate, 'd')) &&
-      (date <= maxDate || date.isSame(maxDate, 'd'));
+      (date <= maxDate || date.isSame(maxDate, 'd')) &&
+      !disabledDates.includes(date && date.format('YYYY-MM-DD'));
     this.isMid = date > startDate && date < endDate ||
       (!date && empty >= startDate && empty <= endDate);
     this.isStart = date && date.isSame(startDate, 'd');

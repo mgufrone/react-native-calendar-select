@@ -282,6 +282,7 @@ export default class Calendar extends Component {
           <View style={[styles.scroll, {borderColor}]}>
             <MonthList
               today={this._today}
+              disabledDates={this.props.disabledDates}
               minDate={this._minDate}
               maxDate={this._maxDate}
               startDate={this.state.startDate}
