@@ -179,7 +179,9 @@ export default class Calendar extends Component {
   }
   close () {
     this.setState({
-      isModalVisible: false
+      isModalVisible: false,
+      startDate: null,
+      endDate: null
     });
   }
   open () {
