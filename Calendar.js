@@ -28,7 +28,8 @@ export default class Calendar extends Component {
     customI18n: PropTypes.object,
     color: PropTypes.object,
     minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
-    maxDate: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)])
+    maxDate: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
+    disabledDates: PropTypes.array,
   }
   static defaultProps = {
     format: 'YYYY-MM-DD',
