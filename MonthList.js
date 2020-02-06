@@ -16,14 +16,9 @@ const {width} = Dimensions.get('window');
 export default class MonthList extends Component {
   constructor (props) {
     super(props);
-    this.ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => {
-        return r2.shouldUpdate;
-      }
-    });
     this.monthList = [];
     this.state = {
-      dataSource: this.ds.cloneWithRows(this._getMonthList())
+      data: this._getMonthList()
     };
     this._renderMonth = this._renderMonth.bind(this);
     this._shouldUpdate = this._shouldUpdate.bind(this);
@@ -40,8 +35,8 @@ export default class MonthList extends Component {
     }, false);
     if (isDateUpdated) {
       this.setState({
-        dataSource:
-          this.state.dataSource.cloneWithRows(this._getMonthList(nextProps))
+        data:
+          this._getMonthList(nextProps)
       });
     }
   }
@@ -129,7 +124,7 @@ export default class MonthList extends Component {
       <FlatList
         ref={(list) => {this.list = list;}}
         style={styles.scrollArea}
-        dataSource={this._getMonthList()}
+        dataSource={this.state.data}
         renderItem={this._renderMonth}
       />
     );
