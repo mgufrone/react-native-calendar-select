@@ -124,7 +124,7 @@ export default class MonthList extends Component {
       <FlatList
         ref={(list) => {this.list = list;}}
         style={styles.scrollArea}
-        dataSource={this.state.data}
+        data={this.state.data}
         renderItem={this._renderMonth}
       />
     );
