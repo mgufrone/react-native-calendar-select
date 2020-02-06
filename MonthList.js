@@ -6,7 +6,7 @@ import React, {PropTypes, Component} from 'react';
 import {
   View,
   Text,
-  ListView,
+    FlatList,
   Dimensions
 } from 'react-native';
 import Moment from 'moment';
@@ -126,14 +126,11 @@ export default class MonthList extends Component {
   }
   render () {
     return (
-      <ListView
+      <FlatList
         ref={(list) => {this.list = list;}}
         style={styles.scrollArea}
-        dataSource={this.state.dataSource}
-        renderRow={this._renderMonth}
-        pageSize={2}
-        initialListSize={2}
-        showsVerticalScrollIndicator={false}
+        dataSource={this._getMonthList()}
+        renderItem={this._renderMonth}
       />
     );
   }
