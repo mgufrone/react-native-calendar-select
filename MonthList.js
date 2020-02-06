@@ -125,7 +125,7 @@ export default class MonthList extends Component {
         ref={(list) => {this.list = list;}}
         style={styles.scrollArea}
         data={this.state.data}
-        renderItem={this._renderMonth}
+        renderItem={({ item }) => this._renderMonth(item)}
       />
     );
   }
